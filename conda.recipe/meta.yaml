@@ -12,7 +12,7 @@
 {% set build_number = 0 %}
 
 package:
-  name: mypackagename
+  name: refl1d_models
   version: {{ version_number }}
 
 source:

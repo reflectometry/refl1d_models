@@ -42,3 +42,4 @@ dependencies:
   - pip:
     - bm3d-streak-removal # example
     - pytest-playwright
+    - refl1d
