@@ -7,11 +7,3 @@ Refl1d example models
    :caption: Contents:
 
    README
-
-=========================================
-Indices and tables
-=========================================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
