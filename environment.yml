@@ -43,4 +43,4 @@ dependencies:
   - pip:
     - bm3d-streak-removal # example
     - pytest-playwright
-    - refl1d
+    - git+https://github.com/reflectometry/refl1d_models.git
