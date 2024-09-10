@@ -1,5 +1,5 @@
 =========================================
-Welcome to python project template docs!
+Refl1d example models
 =========================================
 
 .. toctree::
