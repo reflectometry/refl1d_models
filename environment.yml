@@ -44,4 +44,5 @@ dependencies:
     - bm3d-streak-removal # example
     - pytest-playwright
     - git+https://github.com/bumps/bumps.git
+    - git+https://github.com/reflectometry/refl1d.git
     - git+https://github.com/reflectometry/refl1d_models.git
