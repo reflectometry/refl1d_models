@@ -12,9 +12,9 @@ sys.path.insert(0, os.path.abspath("../src"))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "Project Name"
+project = "Refl1D models"
 copyright = "Copyright 2024"  # noqa A001
-author = "Author Name"
+author = "Refl1D team"
 
 # The short X.Y version
 # NOTE: need to specify the location of the pyproject.toml file instead of the
