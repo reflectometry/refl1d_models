@@ -1,11 +1,19 @@
 """
-Hydration model example
+Hydration model example. This model shows an example of a film with a solvent
+penetrating into the surface layer. The SLD of the surface layer is a linear
+combination of the SLD of the base material and the solvent, according to a
+hydration parameter.
+
+$$ \rho_{top} = (1 - f) \rho_{base} + f \rho_{solvent} $$
+
+where $f$ is the hydration parameter.
 """
 
 import numpy as np
 from refl1d.names import SLD, Experiment, FitProblem, Parameter, QProbe
 
-# PRobe ########################################################################
+# Probe ########################################################################
+# This is where you also load your data
 q = np.logspace(np.log10(0.009), np.log10(0.18), num=150)
 dq = 0.025 * q / 2.35
 

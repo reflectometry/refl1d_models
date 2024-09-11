@@ -7,3 +7,4 @@ Refl1d example models
    :caption: Contents:
 
    README
+   how-to-contribute
