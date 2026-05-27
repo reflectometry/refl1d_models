@@ -1,0 +1,13 @@
+The data to be fitted is PNR data of a 1200A Ni[58] magnetic layer on a Si substrate
+The data format is 3 column ASCII with no header. Columns are Q, R, dR.
+There are 2 data files "_u.dat" suffix is spin up data, "_d.dat" suffix is spin down data.
+The reflectometry geometry is air/solid - super phase is air, subphase is the substrate, Si.
+
+The data are stitched PNR reflectometry data using the lowest scattering angle of theta=0.25 degrees
+The data were reduced at a dQ/Q resolution of 0.01
+
+Hypotheses:
+There may be a NiO surface layer
+There may be a SiO2 interface layer
+There may be magnetically dead layers at both the bottom and top interface of the Ni58 layer
+The magnetic interfaces of the Ni58 layer (above and below), may be different from that of the nuclear (structural) profile.
