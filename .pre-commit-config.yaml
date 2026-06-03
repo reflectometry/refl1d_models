@@ -10,9 +10,11 @@ repos:
     - id: check-merge-conflict
     - id: check-yaml
       args: [--allow-multiple-documents]
-      exclude: "conda.recipe/meta.yaml"
+    # Don't normalise the reduced data files — they are reference inputs.
     - id: end-of-file-fixer
+      exclude: '\.(dat|txt)$'
     - id: trailing-whitespace
+      exclude: '\.(dat|txt)$'
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.9.4
   hooks:
