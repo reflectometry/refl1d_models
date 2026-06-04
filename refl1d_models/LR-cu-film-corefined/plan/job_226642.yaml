@@ -1,4 +1,4 @@
-describe: Cu oxide / Cu / Ti on Si in D2O; beam enters from the Si side.
+describe: 3 nm Cu oxide / 50 nm Cu / 3 nm Ti on Si in D2O; beam enters from the Si side.
 states:
 - name: run_226642
   data:
