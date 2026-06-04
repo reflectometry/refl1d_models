@@ -1,8 +1,7 @@
-describe: Air / possible NiO surface layer / 1200 Å Ni[58] magnetic layer / possible
-  SiO2 interfacial layer on Si. PNR measurement; allow for magnetically dead layers
-  at both Ni[58] interfaces and magnetic interfaces differing from the nuclear interfaces.
 instrument: polref
-data_dir: ..
+describe: air / possible NiO / 1200 Å Ni[58] on possible SiO2 / Si. PNR. Consider
+  magnetically dead layers at both Ni interfaces and magnetic interfaces differing
+  from nuclear interfaces.
 states:
 - name: Ni58_stitched
   polarization: pnr
@@ -12,15 +11,15 @@ states:
   data:
   - Ni58_stitched_u.dat
   - Ni58_stitched_d.dat
-model_name: Ni58_basic_model
+model_name: Ni58_stitched_pnr
 metadata:
   perform_assembly: true
   notes: 'POLREF PNR dataset identified from spin-state filenames and headerless 3-column
-    format. Sequence/group stem is ''Ni58_stitched''; both required spin states (_u,
-    _d) are present, so the measurement is complete and this arriving file is the
-    last missing part of the polarized pair. Context is sufficient to draft a model:
-    air ambient, Ni[58] magnetic layer (~1200 Å), Si substrate, with possible NiO
-    surface layer, possible SiO2 interfacial layer, magnetically dead layers at both
-    Ni interfaces, and magnetic interfaces allowed to differ from nuclear interfaces.
-    Used theta=0.25 deg, dQ/Q=0.01, field defaulted to 0.0 from context convention
-    (no applied field specified).'
+    format. Sequence/stem ''Ni58_stitched'' is complete because both required PNR
+    spin states (_u, _d) are present in the sibling listing. This arriving file is
+    the last missing spin state for the complete stem. Context is sufficient to draft
+    a model: air ambient, 1200 Å Ni[58] magnetic layer on Si substrate, with possible
+    NiO surface layer, possible SiO2 interfacial layer, magnetically dead layers at
+    top and bottom Ni interfaces, and magnetic interfaces allowed to differ from nuclear.
+    Using theta=0.25 deg, dQ/Q=0.01, field defaulted to 0.0 from context (not explicitly
+    specified).'

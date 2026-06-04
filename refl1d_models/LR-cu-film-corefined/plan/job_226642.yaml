@@ -1,21 +1,21 @@
-describe: Cu oxide / Cu / Ti on Si in D2O; back-reflection from the Si side.
-data_dir: ..
+describe: Cu oxide / Cu / Ti on Si in D2O; beam enters from the Si side.
 states:
-- name: run_226642_ocv
+- name: run_226642
   data:
   - REFL_226642_1_226642_partial.txt
   - REFL_226642_2_226643_partial.txt
   - REFL_226642_3_226644_partial.txt
-  theta_offset: true
-  sample_broadening: true
+  theta_offset: false
+  sample_broadening: false
   back_reflection: true
-  extra_description: Aligned OCV measurement in D2O.
-model_name: sample5_ocv_226642
+  extra_description: OCV measurement (aligned). Ambient is D2O. Surface copper oxide
+    is likely present.
+model_name: cu_ocv_226642
 metadata:
   perform_assembly: true
-  notes: 'Sequence 226642 identified from header Meta line (sequence_number 1 of expected
-    3). All three sibling partial files for set 226642 are present, and this file
-    belongs to a complete 3-part sequence, so assembly should be performed. Context
-    matched to Sample5 OCV run 226642: 50 nm Cu on 3 nm Ti on Si in D2O, measured
-    in back-reflection from the silicon side, with likely surface copper oxide. Create-model
-    fields were populated from this context.'
+  notes: 'Sequence 226642 identified from header metadata; this file is part 3 of
+    3 and all parts 1-3 are present in the directory, so assembly should be performed.
+    Context for the relevant measurement is Run 226642 (ALIGNED OCV): a copper film
+    on silicon with a 3 nm Ti adhesion layer, likely surface copper oxide, in D2O,
+    measured in back-reflection from the Si side. Context is sufficient to draft a
+    create-model config with one partial-data state using the three sibling files.'

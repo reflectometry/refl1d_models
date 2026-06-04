@@ -86,18 +86,23 @@ Running a fit on an existing model script (`run-fit`) does not need an LLM.
 
 ## Using the examples
 
-Clone the repo and point a tool at an example folder, e.g.:
+Clone the repo and point a tool at an example folder. Each plan references its
+data files by bare name, and the analyzer locates them through the `ANALYZER_*`
+data-directory environment variables. Since the data sits one level up from
+`plan/`, point those at the example folder before running `create-model`:
 
 ```bash
+export ANALYZER_PARTIAL_DATA_DIR="$PWD/refl1d_models/LR-cu-film-corefined"
+export ANALYZER_COMBINED_DATA_DIR="$PWD/refl1d_models/LR-cu-film-corefined"
 create-model --config refl1d_models/LR-cu-film-corefined/plan/job_226642.yaml
 ```
 
-A plan resolves its data files relative to the plan file via the `data_dir:`
-key (`..` here, since the data sits one level up from `plan/`).
+A repo- or sample-level `.env` can set these instead of exporting them by hand;
+see the nr-analyzer configuration docs for the full `ANALYZER_*` set and the
+`.env` cascade.
 
-The generated `models/*.py` scripts bake an absolute `DATA_DIR` near the top
-(this is what `create-model` emits). If you cloned the repo somewhere other than
-`~/git/refl1d_models`, edit that one line to point at the example's data folder
+The generated `models/*.py` scripts reference the data by absolute path. If you
+cloned the repo somewhere other than `~/git/refl1d_models`, update that path
 before running a fit.
 
 ## Adding a new example
