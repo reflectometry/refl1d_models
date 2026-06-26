@@ -87,19 +87,21 @@ Running a fit on an existing model script (`run-fit`) does not need an LLM.
 ## Using the examples
 
 Clone the repo and point a tool at an example folder. Each plan references its
-data files by bare name, and the analyzer locates them through the `ANALYZER_*`
-data-directory environment variables. Since the data sits one level up from
-`plan/`, point those at the example folder before running `create-model`:
+data files by bare name, and the data sits one level up from `plan/`, so tell
+the tool where the data is. The simplest way is the `--data-dir` flag:
 
 ```bash
-export ANALYZER_PARTIAL_DATA_DIR="$PWD/refl1d_models/LR-cu-film-corefined"
-export ANALYZER_COMBINED_DATA_DIR="$PWD/refl1d_models/LR-cu-film-corefined"
-create-model --config refl1d_models/LR-cu-film-corefined/plan/job_226642.yaml
+create-model --config refl1d_models/LR-cu-film-corefined/plan/job_226642.yaml \
+  --data-dir refl1d_models/LR-cu-film-corefined
 ```
 
-A repo- or sample-level `.env` can set these instead of exporting them by hand;
-see the nr-analyzer configuration docs for the full `ANALYZER_*` set and the
-`.env` cascade.
+`create-model` (and `analyze-sample`) resolve relative data files in this
+order: `--data-dir` → the config file's directory → the current directory →
+the `ANALYZER_*` data directories. So you can equally just run from the example
+folder (the current-directory fallback), or set `ANALYZER_PARTIAL_DATA_DIR` /
+`ANALYZER_COMBINED_DATA_DIR` (or a `.env`) to the example folder. Plans are kept
+free of machine-specific paths — the data location is supplied at run time, not
+baked into the YAML.
 
 The generated `models/*.py` scripts reference the data by absolute path. If you
 cloned the repo somewhere other than `~/git/refl1d_models`, update that path
