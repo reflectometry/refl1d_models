@@ -5,8 +5,8 @@ import sys
 import os
 from types import MethodType
 from numpy import inf
-from refl1d.probe.probe import make_probe 
-from bumps.parameter import Parameter 
+from refl1d.probe.probe import make_probe
+from bumps.parameter import Parameter
 from bumps.util import push_seed
 from refl1d.probe.resolution import FWHM2sigma
 from pathlib import Path
@@ -31,12 +31,12 @@ def QT2L(Q, T):
     """
     return 4 * np.pi * np.sin(np.radians(T)) / Q
 
-def TOF_loader(T=0.25, dQoQ=0.02, 
+def TOF_loader(T=0.25, dQoQ=0.02,
                Q_sim_range=(0.005, 0.2),
                filename=None, skiprows=1, **kw):
     """
     Loads and creates NeutronProbe objects for TOF stitched datasets
-    I.e. from multiple angles. In the case of ISIS NR instruments we 
+    I.e. from multiple angles. In the case of ISIS NR instruments we
     typically have a constant dq/q resolution which the data is binned to at
     the end of the reduction.
 
@@ -69,16 +69,16 @@ def TOF_loader(T=0.25, dQoQ=0.02,
     dT = T *dQoQ
 
     probe_out = NeutronProbe(
-        T=T, 
+        T=T,
         dT=dT,
-        L=L, 
-        dL=0, 
+        L=L,
+        dL=0,
         data=data_in,
         # For standard TOF measurements resolution is assumed to be normal (gaussian)
         #  For measurements with many wavelengths and many angles (say cw measurements)
         #  then a uniform resolution can be used instead.
         resolution='normal',
-        **kw 
+        **kw
     )
 
     return probe_out
@@ -94,9 +94,9 @@ def load_probe_polref(filename, angle, dQoQ, name=None, path=None, pol_mode=None
         name = filename
     if path is None:
         path = os.getcwd()
-    
+
     filepath = Path(path)/filename
-    
+
     if (pol_mode != "pnr") and (pol_mode != "pa"):
         probe = TOF_loader(T=angle, dQoQ=dQoQ, filename=f"{filepath}.dat", name=name, **kw)
 
@@ -212,5 +212,3 @@ step = False
 experiment = Experiment(probe=probe, sample=sample, dz=zed, step_interfaces=step, auto_tag=True)
 
 problem = FitProblem(experiment)
-
-
